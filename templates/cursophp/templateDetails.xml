@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<install version="2.5" type="template" method="upgrade">
+    <name>cursophp</name>
+        <creationDate>2013-06-30</creationDate>
+    <author>Jorge J. Riera</author>
+    <authorEmail>jorge.riera@gmail.com</authorEmail>
+    <authorUrl>yorx.com.ar</authorUrl>
+    <copyright>Copyright (C) 2013 cursophp</copyright>
+    <version>1.0</version>
+    <description><![CDATA[
+    <p>this is a template for the php developers.<p>
+    ]]></description>
+    <files>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <folder>css</folder>
+        <folder>html</folder>
+        <folder>bootstrap</folder>
+    </files>
+    <positions>
+        <position>top-menu</position>
+        <position>login</position>
+        <position>categoria</position>
+        <position>producto</position>
+        <position>top</position>
+        <position>breadcrumbs</position>
+        <position>footer</position>
+        <position>left</position>
+        <position>right</position>
+        <position>footer</position>
+    </positions>
+</install> 
