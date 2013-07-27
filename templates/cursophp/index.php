@@ -15,8 +15,8 @@ $app = JFactory::getApplication();
 
     <div class="row-fluid">
       <div class="hero-unit"  style="background-image:url(images/fondo-banner.jpg)">
-        <h1>Bootstrap Twitter</h1>
-        <h3>Software LIbre</h3> 
+        <h1>Ecommer</h1>
+        <h3>Compra y venta</h3> 
       </div>
     </div>
   
