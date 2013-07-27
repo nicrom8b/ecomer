@@ -1,4 +1,5 @@
 ecomer
 ======
 
-ecomer creado por el curso de php Openix 2013
+e-comer creado por el curso de php dictad por Openix año 2013
+
