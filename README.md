@@ -8,3 +8,5 @@ DATOS de usuario administrador:
 administrador: ecomer
 pass: ecomer123
 
+usuario comunes:
+user: usuario     pass: usuario
