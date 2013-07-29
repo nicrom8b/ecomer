@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb2
+-- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-07-2013 a las 06:30:17
--- Versión del servidor: 5.5.31
--- Versión de PHP: 5.4.4-14+deb7u3
+-- Tiempo de generación: 29-07-2013 a las 05:02:07
+-- Versión del servidor: 5.5.31-0ubuntu0.13.04.1
+-- Versión de PHP: 5.4.9-4ubuntu2.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `categoria`
@@ -60,7 +60,15 @@ CREATE TABLE IF NOT EXISTS `consulta` (
   PRIMARY KEY (`id`),
   KEY `idProducto` (`idProducto`,`idUsuario`),
   KEY `idUsuario` (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `consulta`
+--
+
+INSERT INTO `consulta` (`id`, `idProducto`, `consulta`, `fecha`, `idUsuario`, `respuesta`) VALUES
+(1, 46, 'se escribe laVarropas', '2013-07-29', 166, ':('),
+(2, 46, 'Que tipo de garantia tiene?', '2013-07-29', 165, 'De 1 año.');
 
 -- --------------------------------------------------------
 
@@ -77,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `foto` (
   `id_producto` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   KEY `id_producto` (`id_producto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
 
 --
 -- Volcado de datos para la tabla `foto`
@@ -86,7 +94,8 @@ CREATE TABLE IF NOT EXISTS `foto` (
 INSERT INTO `foto` (`id`, `nombre`, `ubicacion`, `created`, `modified`, `id_producto`) VALUES
 (1374916006, 'fotoNoDisponible.jpg', '', '2013-07-27 00:00:00', '2013-07-27 00:00:00', 44),
 (1374916704, '1374916704-iphone5.jpg', '', '2013-07-27 00:00:00', '2013-07-27 00:00:00', 45),
-(1374917233, '1374917233-lavarropas.jpg', '', '2013-07-27 00:00:00', '2013-07-27 00:00:00', 46);
+(1374917233, '1374917233-lavarropas.jpg', '', '2013-07-27 00:00:00', '2013-07-27 00:00:00', 46),
+(1375083113, '1375083113-notebook.jpg', '', '2013-07-29 00:00:00', '2013-07-29 00:00:00', 47);
 
 -- --------------------------------------------------------
 
@@ -126,15 +135,16 @@ CREATE TABLE IF NOT EXISTS `producto` (
   PRIMARY KEY (`id`),
   KEY `categoria_id` (`idCategoria`),
   KEY `idUsuario` (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
 INSERT INTO `producto` (`id`, `idUsuario`, `nombre`, `descripcion`, `precio`, `cantidad`, `created`, `modified`, `tipo`, `idCategoria`) VALUES
-(47, 165, 'iphone 5', 'iphone 5 . nuevos en caja y garantia', 3444.66, 3, '2013-07-27 00:00:00', '2013-07-27 00:00:00', 'nuevo', 4),
-(48, 165, 'labarropas automatico', 'lavorropas wirpool', 444.00, 1, '2013-07-27 00:00:00', '2013-07-27 00:00:00', 'usado', 2);
+(45, 165, 'iphone 5', 'iphone 5 . nuevos en caja y garantia', 3444.66, 3, '2013-07-27 00:00:00', '2013-07-27 00:00:00', 'nuevo', 4),
+(46, 165, 'labarropas automatico', 'lavorropas wirpool', 444.00, 1, '2013-07-27 00:00:00', '2013-07-27 00:00:00', 'usado', 2),
+(47, 165, 'Notebook Sony', 'Notebook Sony Vaio Intel Core I3 320gb 4gb Bluetooth', 5200.00, 2, '2013-07-29 00:00:00', '2013-07-29 00:00:00', 'nuevo', 1);
 
 -- --------------------------------------------------------
 
@@ -162,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `site_assets` (
 --
 
 INSERT INTO `site_assets` (`id`, `parent_id`, `lft`, `rgt`, `level`, `name`, `title`, `rules`) VALUES
-(1, 0, 1, 424, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
+(1, 0, 1, 424, 0, 'root.1', 'Root Asset', '{"core.login.site":{"6":1,"2":1},"core.login.admin":{"6":1},"core.login.offline":[],"core.admin":{"8":1},"core.manage":{"7":1},"core.create":{"6":1,"3":1},"core.delete":{"6":1},"core.edit":{"6":1,"4":1},"core.edit.state":{"6":1,"5":1},"core.edit.own":{"6":1,"3":1}}'),
 (2, 1, 2, 3, 1, 'com_admin', 'com_admin', '{}'),
 (3, 1, 4, 11, 1, 'com_banners', 'com_banners', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":[],"core.delete":[],"core.edit":[],"core.edit.state":[]}'),
 (4, 1, 12, 13, 1, 'com_cache', 'com_cache', '{"core.admin":{"7":1},"core.manage":{"7":1}}'),
@@ -842,7 +852,7 @@ CREATE TABLE IF NOT EXISTS `site_extensions` (
   KEY `element_clientid` (`element`,`client_id`),
   KEY `element_folder_clientid` (`element`,`folder`,`client_id`),
   KEY `extension` (`type`,`element`,`folder`,`client_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10004 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10008 ;
 
 --
 -- Volcado de datos para la tabla `site_extensions`
@@ -977,7 +987,9 @@ INSERT INTO `site_extensions` (`extension_id`, `name`, `type`, `element`, `folde
 (10000, 'cursophp', 'template', 'cursophp', '', 0, 1, 1, 0, '{"legacy":true,"name":"cursophp","type":"template","creationDate":"2013-06-30","author":"Jorge J. Riera","copyright":"Copyright (C) 2013 cursophp","authorEmail":"jorge.riera@gmail.com","authorUrl":"yorx.com.ar","version":"1.0","description":"\\n    <p>this is a template for the php developers.<p>\\n    ","group":""}', '{}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (10001, 'com_publico', 'component', 'com_publico', '', 0, 1, 1, 0, '', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
 (10002, 'com_registrado', 'component', 'com_registrado', '', 0, 1, 1, 0, '', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
-(10003, 'com_ventas', 'component', 'com_ventas', '', 0, 1, 1, 0, '', '', '', '', 0, '0000-00-00 00:00:00', 0, 0);
+(10003, 'com_ventas', 'component', 'com_ventas', '', 0, 1, 1, 0, '', '', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(10006, 'Menu Publico', 'module', 'mod_menupublico', '', 0, 1, 0, 0, '{"legacy":false,"name":"Menu Publico","type":"module","creationDate":"2013","author":"Debi Suda\\u00f1ez","copyright":"Todos los derechos reservados para debitux","authorEmail":"debitux@gmail.com","authorUrl":"www.debitux.com","version":"1.0.0","description":"Provee un menu de categorias de acceso publico","group":""}', '{"moduleclass_sfx":"","@spacer":"","categoriescount":"5","layout":"default"}', '', '', 0, '0000-00-00 00:00:00', 0, 0),
+(10007, 'Menu Registrado', 'module', 'mod_menuregistrado', '', 0, 1, 0, 0, '{"legacy":false,"name":"Menu Registrado","type":"module","creationDate":"2013","author":"Debi Suda\\u00f1ez","copyright":"Todos los derechos reservados para debitux","authorEmail":"debitux@gmail.com","authorUrl":"www.debitux.com","version":"1.0.0","description":"Provee un menu para usuarios registrados","group":""}', '{"moduleclass_sfx":"","@spacer":"","categoriescount":"5","layout":"default"}', '', '', 0, '0000-00-00 00:00:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1844,7 +1856,7 @@ CREATE TABLE IF NOT EXISTS `site_modules` (
   KEY `published` (`published`,`access`),
   KEY `newsfeeds` (`module`,`published`),
   KEY `idx_language` (`language`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=91 ;
 
 --
 -- Volcado de datos para la tabla `site_modules`
@@ -1913,7 +1925,9 @@ INSERT INTO `site_modules` (`id`, `title`, `note`, `content`, `ordering`, `posit
 (78, 'Contribute', '', '', 1, 'position-9', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_banners', 1, 0, '{"target":"1","count":"1","cid":"1","catid":["15"],"tag_search":"0","ordering":"0","header_text":"","footer_text":"Contribute! ","layout":"_:default","moduleclass_sfx":"","cache":"1","cache_time":"900"}', 0, '*'),
 (79, 'Multilanguage status', '', '', 1, 'status', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 'mod_multilangstatus', 3, 1, '{"layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
 (84, 'Smart Search Module', '', '', 2, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_finder', 1, 1, '{"searchfilter":"","show_autosuggest":"1","show_advanced":"0","layout":"_:default","moduleclass_sfx":"","field_size":20,"alt_label":"","show_label":"0","label_pos":"top","show_button":"0","button_pos":"right","opensearch":"1","opensearch_title":""}', 0, '*'),
-(86, 'Joomla Version', '', '', 1, 'footer', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_version', 3, 1, '{"format":"short","product":"1","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*');
+(86, 'Joomla Version', '', '', 1, 'footer', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_version', 3, 1, '{"format":"short","product":"1","layout":"_:default","moduleclass_sfx":"","cache":"0"}', 1, '*'),
+(89, 'Menu Publico', '', '', 1, 'categoria', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menupublico', 1, 1, '{"moduleclass_sfx":"","categoriescount":"5","layout":"default"}', 0, '*'),
+(90, 'Menu Registrado', '', '', 1, 'producto', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 1, 'mod_menuregistrado', 2, 1, '{"moduleclass_sfx":"","categoriescount":"5","layout":"default"}', 0, '*');
 
 -- --------------------------------------------------------
 
@@ -2091,7 +2105,9 @@ INSERT INTO `site_modules_menu` (`moduleid`, `menuid`) VALUES
 (78, 0),
 (79, 0),
 (84, 467),
-(86, 0);
+(86, 0),
+(89, 0),
+(90, 0);
 
 -- --------------------------------------------------------
 
@@ -2180,7 +2196,22 @@ CREATE TABLE IF NOT EXISTS `site_redirect_links` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_link_old` (`old_url`),
   KEY `idx_link_modifed` (`modified_date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Volcado de datos para la tabla `site_redirect_links`
+--
+
+INSERT INTO `site_redirect_links` (`id`, `old_url`, `new_url`, `referer`, `comment`, `hits`, `published`, `created_date`, `modified_date`) VALUES
+(1, 'http://miweb.debi/ecomer/index.php?option=com_publicofinal&task=detalleProducto&id=45', '', 'http://miweb.debi/ecomer/index.php?option=com_publico&task=catalogoProducto&Itemid=0', '', 1, 0, '2013-07-29 04:53:11', '0000-00-00 00:00:00'),
+(2, 'http://miweb.debi/ecomer/index.php?option=com_publicofinal&task=detalleProducto&id=46', '', 'http://miweb.debi/ecomer/index.php?option=com_publico&task=catalogoProducto&Itemid=0', '', 1, 0, '2013-07-29 04:53:26', '0000-00-00 00:00:00'),
+(3, 'http://miweb.debi/ecomer/index.php/component/publicofinal/?task=categoriaProducto&id=1', '', 'http://miweb.debi/ecomer/index.php/component/publico', '', 3, 0, '2013-07-29 05:28:14', '0000-00-00 00:00:00'),
+(4, 'http://miweb.debi/ecomer/index.php/component/publicol/?task=categoriaProducto&id=1', '', '', '', 1, 0, '2013-07-29 05:28:41', '0000-00-00 00:00:00'),
+(5, 'http://miweb.debi/ecomer/index.php/component/publicofinal/?task=categoriaProducto&id=2', '', 'http://miweb.debi/ecomer/index.php', '', 2, 0, '2013-07-29 05:28:50', '0000-00-00 00:00:00'),
+(6, 'http://miweb.debi/ecomer/index.php/component/registradofinal/?task=catalogar', '', 'http://miweb.debi/ecomer/index.php/component/publico/?task=catalogoProducto&Itemid=0', '', 1, 0, '2013-07-29 05:30:45', '0000-00-00 00:00:00'),
+(7, 'http://miweb.debi/ecomer/index.php/component/publicofinal/?task=guardarMensajes', '', 'http://miweb.debi/ecomer/index.php/component/publico/?task=detalleProducto&id=46', '', 1, 0, '2013-07-29 05:32:37', '0000-00-00 00:00:00'),
+(8, 'http://miweb.debi/ecomer/index.php/component/registradofinal/?task=responder&id=45', '', 'http://miweb.debi/ecomer/index.php/component/registrado/?task=catalogar', '', 1, 0, '2013-07-29 06:05:19', '0000-00-00 00:00:00'),
+(9, 'http://miweb.debi/ecomer/index.php/component/registradofinal/?task=responder&id=46', '', 'http://miweb.debi/ecomer/index.php/component/registrado/?task=catalogar', '', 2, 0, '2013-07-29 06:06:13', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -2227,7 +2258,8 @@ CREATE TABLE IF NOT EXISTS `site_session` (
 --
 
 INSERT INTO `site_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`, `usertype`) VALUES
-('o86k5nprmhba71ff0dlctd9bo2', 0, 0, '1374917275', '__default|a:9:{s:15:"session.counter";i:37;s:19:"session.timer.start";i:1374915801;s:18:"session.timer.last";i:1374917257;s:17:"session.timer.now";i:1374917275;s:22:"session.client.browser";s:68:"Mozilla/5.0 (X11; Linux x86_64; rv:21.0) Gecko/20100101 Firefox/21.0";s:8:"registry";O:9:"JRegistry":1:{s:7:"\0*\0data";O:8:"stdClass":1:{s:5:"users";O:8:"stdClass":1:{s:5:"login";O:8:"stdClass":1:{s:4:"form";O:8:"stdClass":2:{s:6:"return";s:20:"index.php?Itemid=435";s:4:"data";a:0:{}}}}}}s:4:"user";O:5:"JUser":25:{s:9:"\0*\0isRoot";b:1;s:2:"id";s:3:"165";s:4:"name";s:10:"Super User";s:8:"username";s:6:"ecomer";s:5:"email";s:22:"jorge.riera9@gmail.com";s:8:"password";s:65:"f3ba216bca6373627925b145d111391b:WWJ3tccTpfeiqoJvb2XXTELhXTlJo2nS";s:14:"password_clear";s:0:"";s:8:"usertype";s:10:"deprecated";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:12:"registerDate";s:19:"2013-07-27 07:00:24";s:13:"lastvisitDate";s:19:"2013-07-27 09:03:20";s:10:"activation";s:1:"0";s:6:"params";s:0:"";s:6:"groups";a:1:{i:8;s:1:"8";}s:5:"guest";i:0;s:13:"lastResetTime";s:19:"0000-00-00 00:00:00";s:10:"resetCount";s:1:"0";s:10:"\0*\0_params";O:9:"JRegistry":1:{s:7:"\0*\0data";O:8:"stdClass":0:{}}s:14:"\0*\0_authGroups";a:2:{i:0;i:1;i:1;i:8;}s:14:"\0*\0_authLevels";a:4:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;}s:15:"\0*\0_authActions";N;s:12:"\0*\0_errorMsg";N;s:10:"\0*\0_errors";a:0:{}s:3:"aid";i:0;}s:13:"session.token";s:32:"259d3abf42e83928b0853b9b92223e79";s:17:"application.queue";a:1:{i:0;a:2:{s:7:"message";s:32:"Producto guardado con exito =D!!";s:4:"type";s:7:"message";}}}', 165, 'ecomer', '');
+('1g3p26ndann0vi5f4i9u55lqf5', 1, 0, '1375083405', '__default|a:8:{s:15:"session.counter";i:14;s:19:"session.timer.start";i:1375083340;s:18:"session.timer.last";i:1375083404;s:17:"session.timer.now";i:1375083405;s:22:"session.client.browser";s:76:"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0";s:8:"registry";O:9:"JRegistry":1:{s:7:"\0*\0data";O:8:"stdClass":4:{s:11:"application";O:8:"stdClass":1:{s:4:"lang";s:0:"";}s:13:"com_installer";O:8:"stdClass":3:{s:7:"message";s:0:"";s:17:"extension_message";s:0:"";s:12:"redirect_url";N;}s:11:"com_modules";O:8:"stdClass":4:{s:7:"modules";O:8:"stdClass":1:{s:6:"filter";O:8:"stdClass":1:{s:18:"client_id_previous";i:0;}}s:4:"edit";O:8:"stdClass":1:{s:6:"module";O:8:"stdClass":2:{s:2:"id";a:0:{}s:4:"data";N;}}s:9:"positions";O:8:"stdClass":4:{s:6:"filter";O:8:"stdClass":4:{s:6:"search";s:0:"";s:5:"state";s:0:"";s:8:"template";s:8:"cursophp";s:4:"type";s:0:"";}s:10:"limitstart";s:2:"20";s:8:"ordercol";s:5:"value";s:9:"orderdirn";s:3:"asc";}s:3:"add";O:8:"stdClass":1:{s:6:"module";O:8:"stdClass":2:{s:12:"extension_id";N;s:6:"params";N;}}}s:6:"global";O:8:"stdClass":1:{s:4:"list";O:8:"stdClass":1:{s:5:"limit";i:20;}}}}s:4:"user";O:5:"JUser":25:{s:9:"\0*\0isRoot";b:1;s:2:"id";s:3:"165";s:4:"name";s:10:"Super User";s:8:"username";s:6:"ecomer";s:5:"email";s:22:"jorge.riera9@gmail.com";s:8:"password";s:65:"f3ba216bca6373627925b145d111391b:WWJ3tccTpfeiqoJvb2XXTELhXTlJo2nS";s:14:"password_clear";s:0:"";s:8:"usertype";s:10:"deprecated";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:12:"registerDate";s:19:"2013-07-27 07:00:24";s:13:"lastvisitDate";s:19:"2013-07-29 06:34:30";s:10:"activation";s:1:"0";s:6:"params";s:0:"";s:6:"groups";a:1:{i:8;s:1:"8";}s:5:"guest";i:0;s:13:"lastResetTime";s:19:"0000-00-00 00:00:00";s:10:"resetCount";s:1:"0";s:10:"\0*\0_params";O:9:"JRegistry":1:{s:7:"\0*\0data";O:8:"stdClass":0:{}}s:14:"\0*\0_authGroups";a:2:{i:0;i:1;i:1;i:8;}s:14:"\0*\0_authLevels";a:4:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;}s:15:"\0*\0_authActions";N;s:12:"\0*\0_errorMsg";N;s:10:"\0*\0_errors";a:0:{}s:3:"aid";i:0;}s:13:"session.token";s:32:"6f43619fa7833227154ded4e094e4d2a";}', 165, 'ecomer', ''),
+('rqc6iduo7et3ldfosr3tc0bm36', 0, 0, '1375084256', '__default|a:9:{s:15:"session.counter";i:36;s:19:"session.timer.start";i:1375078929;s:18:"session.timer.last";i:1375083416;s:17:"session.timer.now";i:1375084256;s:22:"session.client.browser";s:76:"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0";s:8:"registry";O:9:"JRegistry":1:{s:7:"\0*\0data";O:8:"stdClass":1:{s:5:"users";O:8:"stdClass":1:{s:5:"login";O:8:"stdClass":1:{s:4:"form";O:8:"stdClass":2:{s:6:"return";s:20:"index.php?Itemid=435";s:4:"data";a:0:{}}}}}}s:4:"user";O:5:"JUser":25:{s:9:"\0*\0isRoot";b:1;s:2:"id";s:3:"165";s:4:"name";s:10:"Super User";s:8:"username";s:6:"ecomer";s:5:"email";s:22:"jorge.riera9@gmail.com";s:8:"password";s:65:"f3ba216bca6373627925b145d111391b:WWJ3tccTpfeiqoJvb2XXTELhXTlJo2nS";s:14:"password_clear";s:0:"";s:8:"usertype";s:10:"deprecated";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:12:"registerDate";s:19:"2013-07-27 07:00:24";s:13:"lastvisitDate";s:19:"2013-07-29 06:04:31";s:10:"activation";s:1:"0";s:6:"params";s:0:"";s:6:"groups";a:1:{i:8;s:1:"8";}s:5:"guest";i:0;s:13:"lastResetTime";s:19:"0000-00-00 00:00:00";s:10:"resetCount";s:1:"0";s:10:"\0*\0_params";O:9:"JRegistry":1:{s:7:"\0*\0data";O:8:"stdClass":0:{}}s:14:"\0*\0_authGroups";a:2:{i:0;i:1;i:1;i:8;}s:14:"\0*\0_authLevels";a:4:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;}s:15:"\0*\0_authActions";N;s:12:"\0*\0_errorMsg";N;s:10:"\0*\0_errors";a:0:{}s:3:"aid";i:0;}s:13:"session.token";s:32:"8f9c9c0e8896d55c5b54f46940b9554c";s:17:"application.queue";a:5:{i:0;a:2:{s:7:"message";s:33:"USTED NO ES UN USUARIO REGISTRADO";s:4:"type";s:7:"message";}i:1;a:2:{s:7:"message";s:34:"Se guardo su respuesta con exito!!";s:4:"type";s:7:"message";}i:2;a:2:{s:7:"message";s:37:"Su consulta fue realizada con exito!!";s:4:"type";s:7:"message";}i:3;a:2:{s:7:"message";s:34:"Se guardo su respuesta con exito!!";s:4:"type";s:7:"message";}i:4;a:2:{s:7:"message";s:32:"Producto guardado con exito =D!!";s:4:"type";s:7:"message";}}}', 165, 'ecomer', '');
 
 -- --------------------------------------------------------
 
@@ -2282,7 +2314,7 @@ CREATE TABLE IF NOT EXISTS `site_updates` (
   `detailsurl` text NOT NULL,
   `infourl` text NOT NULL,
   PRIMARY KEY (`update_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Available Updates' AUTO_INCREMENT=66 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Available Updates' AUTO_INCREMENT=80 ;
 
 --
 -- Volcado de datos para la tabla `site_updates`
@@ -2353,7 +2385,21 @@ INSERT INTO `site_updates` (`update_id`, `update_site_id`, `extension_id`, `cate
 (62, 3, 0, 0, 'Korean', '', 'pkg_ko-KR', 'package', '', 0, '2.5.11.1', '', 'http://update.joomla.org/language/details/ko-KR_details.xml', ''),
 (63, 3, 0, 0, 'Hindi', '', 'pkg_hi-IN', 'package', '', 0, '2.5.6.1', '', 'http://update.joomla.org/language/details/hi-IN_details.xml', ''),
 (64, 3, 0, 0, 'Welsh', '', 'pkg_cy-GB', 'package', '', 0, '2.5.6.1', '', 'http://update.joomla.org/language/details/cy-GB_details.xml', ''),
-(65, 3, 0, 0, 'Swahili', '', 'pkg_sw-KE', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/sw-KE_details.xml', '');
+(65, 3, 0, 0, 'Swahili', '', 'pkg_sw-KE', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/sw-KE_details.xml', ''),
+(66, 3, 0, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/ca-ES_details.xml', ''),
+(67, 3, 0, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/fi-FI_details.xml', ''),
+(68, 3, 0, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/ca-ES_details.xml', ''),
+(69, 3, 0, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/fi-FI_details.xml', ''),
+(70, 3, 0, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/ca-ES_details.xml', ''),
+(71, 3, 0, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/fi-FI_details.xml', ''),
+(72, 3, 0, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/ca-ES_details.xml', ''),
+(73, 3, 0, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/fi-FI_details.xml', ''),
+(74, 3, 0, 0, 'Persian', '', 'pkg_fa-IR', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/fa-IR_details.xml', ''),
+(75, 3, 0, 0, 'Persian', '', 'pkg_fa-IR', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/fa-IR_details.xml', ''),
+(76, 3, 0, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/ca-ES_details.xml', ''),
+(77, 3, 0, 0, 'Catalan', '', 'pkg_ca-ES', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/ca-ES_details.xml', ''),
+(78, 3, 0, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/fi-FI_details.xml', ''),
+(79, 3, 0, 0, 'Finnish', '', 'pkg_fi-FI', 'package', '', 0, '2.5.13.1', '', 'http://update.joomla.org/language/details/fi-FI_details.xml', '');
 
 -- --------------------------------------------------------
 
@@ -2391,9 +2437,9 @@ CREATE TABLE IF NOT EXISTS `site_update_sites` (
 --
 
 INSERT INTO `site_update_sites` (`update_site_id`, `name`, `type`, `location`, `enabled`, `last_check_timestamp`) VALUES
-(1, 'Joomla Core', 'collection', 'http://update.joomla.org/core/list.xml', 1, 1374911985),
-(2, 'Joomla Extension Directory', 'collection', 'http://update.joomla.org/jed/list.xml', 1, 1374911985),
-(3, 'Accredited Joomla! Translations', 'collection', 'http://update.joomla.org/language/translationlist.xml', 1, 1374911987);
+(1, 'Joomla Core', 'collection', 'http://update.joomla.org/core/list.xml', 1, 1375083347),
+(2, 'Joomla Extension Directory', 'collection', 'http://update.joomla.org/jed/list.xml', 1, 1375083347),
+(3, 'Accredited Joomla! Translations', 'collection', 'http://update.joomla.org/language/translationlist.xml', 1, 1375083349);
 
 -- --------------------------------------------------------
 
@@ -2485,8 +2531,8 @@ CREATE TABLE IF NOT EXISTS `site_users` (
 --
 
 INSERT INTO `site_users` (`id`, `name`, `username`, `email`, `password`, `usertype`, `block`, `sendEmail`, `registerDate`, `lastvisitDate`, `activation`, `params`, `lastResetTime`, `resetCount`) VALUES
-(165, 'Super User', 'ecomer', 'jorge.riera9@gmail.com', 'f3ba216bca6373627925b145d111391b:WWJ3tccTpfeiqoJvb2XXTELhXTlJo2nS', 'deprecated', 0, 1, '2013-07-27 07:00:24', '2013-07-27 09:04:17', '0', '', '0000-00-00 00:00:00', 0),
-(166, 'usuario', 'usuario', 'usuario@gmail.com', '94ee58a6607b6245dce225d9e554f40e:J5o9BJFWR4n3fX0GMdGdXIX7snJPxu6E', '', 1, 0, '2013-07-27 08:57:05', '0000-00-00 00:00:00', '34c6294b3d654465aac94ca40ff8af64', '{}', '0000-00-00 00:00:00', 0);
+(165, 'Super User', 'ecomer', 'jorge.riera9@gmail.com', 'f3ba216bca6373627925b145d111391b:WWJ3tccTpfeiqoJvb2XXTELhXTlJo2nS', 'deprecated', 0, 1, '2013-07-27 07:00:24', '2013-07-29 07:35:46', '0', '', '0000-00-00 00:00:00', 0),
+(166, 'usuario', 'usuario', 'usuario@gmail.com', '94ee58a6607b6245dce225d9e554f40e:J5o9BJFWR4n3fX0GMdGdXIX7snJPxu6E', '', 0, 0, '2013-07-27 08:57:05', '2013-07-29 06:04:20', '', '{}', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
