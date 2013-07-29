@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6.0" client="site" method="install">
+        <name>Menu Registrado</name>
+        <author>Debi Sudañez</author>
+        <creationDate>2013</creationDate>
+        <copyright>Todos los derechos reservados para debitux</copyright>
+        <license>GPL 2.0</license>
+        <authorEmail>debitux@gmail.com</authorEmail>
+        <authorUrl>www.debitux.com</authorUrl>
+        <version>1.0.0</version>
+        <description>Provee un menu para usuarios registrados</description>
+    <!-- Listing of all files that should be installed for the module to function -->
+        <files>
+        <!-- The "module" attribute signifies that this is the main controller file -->
+               <filename module="mod_menuregistrado">mod_menuregistrado.php</filename>
+               <filename>index.html</filename>
+               <filename>helper.php</filename>
+               <filename>tmpl/default.php</filename>
+               <filename>tmpl/ordered_list.php</filename>
+               <filename>tmpl/index.html</filename>
+        </files>
+  
+    <languages>
+        <!-- Any language files included with the module -->
+        <language tag="en-GB">en-GB.mod_menuregistrado.ini</language>
+        <language tag="es-ES">es-ES.mod_menuregistrado.ini</language>
+    </languages>
+  
+    <!-- Optional parameters -->
+        <config>
+            <fields name="params">
+                <fieldset name="basic">
+                    <field
+                        name="moduleclass_sfx"
+                        type="text"
+                        default=""
+                        label="LABEL_CLASS_SUFFIX"
+                        description="DESC_MOD_SUFFIX">
+                    </field>
+                    <field
+                        name="@spacer"
+                        type="spacer"
+                        default=""
+                        label=""
+                        description="">
+                    </field>
+                    <field
+                        name="categoriescount"
+                        type="text"
+                        default="5"
+                        label="LABEL_CATEGORIES_COUNT"
+                        description="DESC_CATEGORIES_COUNT">
+                    </field>
+                    <field
+                        name="layout"
+                        type="list"
+                        default="default"
+                        label="LABEL_CATEGORIES_LAYOUT"
+                        description="DESC_CATEGORIES_LAYOUT">
+                       <option
+                               value="default">Unordered List</option>
+                       <option
+                       value="ordered_list">Ordered List</option>
+                    </field>
+                </fieldset>
+            </fields>
+       </config>
+</extension>

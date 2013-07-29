@@ -30,8 +30,8 @@ class RegistradoModelregistrado extends JModel {
 
     function getProducto($id){
 	    $db=  JFactory::getDbo();
-	    $sql="select * from producto where id=$id";
-	    $db->setQuery($sql);        
+	    $sql="SELECT p.id AS identproducto, p.nombre AS nombreproducto, precio, descripcion, cantidad, tipo, f.nombre as nombrefoto from producto p, foto f where p.id=$id AND f.id_producto=$id";
+	    $db->setQuery($sql);
 	    return $db->loadObject();
         }
 
@@ -52,7 +52,39 @@ class RegistradoModelregistrado extends JModel {
             }
     }
 
-/////////////////////////////////////////////////////////////
+//ALTA PRODUCTO
+    function getListadoCategoria(){
+            $db=  JFactory::getDbo();
+            $sql='select * from categoria';
+            $db->setQuery($sql);
+        
+            return $db->loadObjectList();
+        }
+
+      function cargarProducto($nombre,$precio,$cantidad,$descripcion,$categoria,$user,$tipo){
+            $db=  JFactory::getDbo();
+            $date=  date('y-m-d');
+            $sql1="INSERT INTO producto VALUES ('','$user','$nombre','$descripcion',$precio,$cantidad,'$date','$date','$tipo',$categoria)";
+            $db->setQuery($sql1);
+            if (!$db->query()){
+                throw new Exception($db->getErrorMsg());
+                 }
+            $ultimo=mysql_insert_id();
+            return $ultimo;
+        }
+
+      function cargarFoto($id,$nombreFoto,$idProducto)
+        {
+            
+            $db=  JFactory::getDbo();
+            $date=  date('y-m-d');
+            $sql="insert into foto values ($id,'$nombreFoto','','$date','$date',$idProducto)";
+            $db->setQuery($sql);
+            if (!$db->query()){
+                throw new Exception($db->getErrorMsg());
+                 }
+            
+        }
 
 }
 ?>

@@ -190,7 +190,7 @@
             <tbody>
                 <tr class="funcybox-buttons">
                     <td><a class="funcybox-buttons" href="<?php echo JURI::root();?>images/<?php echo $producto->nomf;?>" title="<?php echo $producto->descripcion;?>"><img width="115" height="90" alt="img" src="<?php echo JURI::root();?>images/<?php echo $producto->nomf;?>"/></a></td>
-                    <td><a href="index.php?option=com_publicofinal&task=detalleProducto&id=<?echo $producto->ident; ?>"><?php echo $producto->name;?></td>
+                    <td><a href="index.php?option=com_publico&task=detalleProducto&id=<?echo $producto->ident; ?>"><?php echo $producto->name;?></td>
                     <td>$<?php echo $producto->precio;?></td>
                     <td><?php echo $producto->nombreCategoria;?></td>
                     <td><?php echo $producto->tipo;?></td>

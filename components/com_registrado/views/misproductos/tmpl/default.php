@@ -83,7 +83,7 @@
                     <td>$<?php echo $producto->precio;?></td>
                     <td><?php echo $producto->nombreCategoria;?></td>
                     <td><?php echo $producto->tipo;?></td>
-                    <td><a href="index.php?option=com_registradofinal&task=responder&id=<?php echo $producto->idProd;?>"> <?php echo $producto->cont;?> </a></td>
+                    <td><a href="index.php?option=com_registrado&task=responder&id=<?php echo $producto->idProd;?>"> <?php echo $producto->cont;?> </a></td>
                     <td><a href="javascript:eliminar('<?php echo $producto->idProd;?>')" onclick="return confirm ('Desea eliminar este producto: <?php echo $producto->nombre;?>')">Borrar</a></td>
                     <td> <a href="index.php?option=com_ventas&task=modificarProducto&id=<?php echo $producto->idProd; ?>">Modificar</a></td>
                 </tr>

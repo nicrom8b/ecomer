@@ -200,7 +200,7 @@
             </table>
 
 
-            <form  action="<?php echo JRoute::_('index.php?option=com_publicofinal&task=guardarMensajes');?>" method="post">
+            <form  action="<?php echo JRoute::_('index.php?option=com_publico&task=guardarMensajes');?>" method="post">
          	<input type="hidden" id="id" value="<?php echo $this->productos->id;?>"  name="idProducto" >    
          	<div>
             	<h5>Preguntas</h5>

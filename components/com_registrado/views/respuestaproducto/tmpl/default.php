@@ -156,11 +156,11 @@
                   <tr>
                 	<td width="200" height="200">
          	        	<fieldset> 
-	        	            <a class="fancybox" href="<?php echo JURI::root();?>images/<?php echo $this->foto->nombre; ?>" data-fancybox-group="gallery" title="<?php echo $this->productos->nombre; ?>"><img width="150" height="150" src="<?php echo JURI::root();?>images/<?php echo $this->foto->nombre; ?>" alt="" /></a>
+	        	            <a class="fancybox" href="<?php echo JURI::root();?>images/<?php echo $this->producto->nombrefoto; ?>" data-fancybox-group="gallery" title="<?php echo $this->producto->nombreproducto; ?>"><img width="150" height="150" src="<?php echo JURI::root();?>images/<?php echo $this->producto->nombrefoto; ?>" alt="" /></a>
                 	    </fieldset>
 		            </td>
               		<td width="350" height="200">
-						<h3><?php echo $this->producto->nombre; ?></h3>
+						<h3><?php echo $this->producto->nombreproducto; ?></h3>
                         <p> <?php echo $this->producto->descripcion; ?> </p>
                         <div> 
                         	<h2> $ <?php echo $this->producto->precio; ?> </h2>
@@ -178,9 +178,9 @@
      <?php foreach ($this->consultas as $consultas) { ?>
         <div>
         <?php if (strlen($consultas->respuesta)==0) { ?>
-            <form  action="<?php echo JRoute::_('index.php?option=com_registradofinal&task=guardarRespuesta');?>" method="post">
+            <form  action="<?php echo JRoute::_('index.php?option=com_registrado&task=guardarRespuesta');?>" method="post">
             <input type="hidden" id="id" value="<?php echo $consultas->id;?>"  name="idConsulta" >        
-            <input type="hidden" id="id" value="<?php echo $this->producto->id;?>"  name="idProducto" >    
+            <input type="hidden" id="id" value="<?php echo $this->producto->identproducto;?>"  name="idProducto" >    
 
             <div style="background-color: #c2e1dd ">
                 <p>Pregunta:</p>

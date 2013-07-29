@@ -48,13 +48,13 @@ class JConfig {
 	public $MetaAuthor = '1';
 	public $MetaVersion = '0';
 	public $robots = '';
-	public $sef = '0';
+	public $sef = '1';
 	public $sef_rewrite = '0';
 	public $sef_suffix = '0';
 	public $unicodeslugs = '0';
 	public $feed_limit = '10';
 	public $log_path = '/home/yorx/Web/ecomer/logs';
-	public $tmp_path = '/home/yorx/Web/ecomer/tmp';
+	public $tmp_path = './tmp';
 	public $lifetime = '15';
 	public $session_handler = 'database';
 	public $MetaRights = '';
