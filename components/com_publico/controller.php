@@ -13,7 +13,6 @@ class PublicoController extends JControllerLegacy {
         $view=$this->getView('catalogoproducto','html');
         $model=$this->getModel('publico'); //instanciamos el modelo.. listad.php.
         $productos=$model->getCatalogarProducto(); //llama a model y ahi a getLisstado blabla..
-        
         $view->assignRef('productos',$productos);
       //los asigna a una cadena, en la vista se convierte en una variable q para mostrar debere recorrer con un foreach-. (en default.php)
        
