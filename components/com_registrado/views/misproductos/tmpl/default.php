@@ -90,5 +90,7 @@
             </tbody>
         <?php } ?>
     </table>
+
+    <a href="index.php?option=com_registrado&task=exportarExel">Exel</a>
 </body>
 </html>

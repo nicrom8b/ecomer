@@ -126,6 +126,76 @@ public function cargarProducto(){
              $msg = 'Producto guardado con exito =D!!'; 
              $app->redirect($link, $msg, $msgType='message'); 
     }
-}
 
+
+    public function exportarExel(){
+
+       
+        /** Error reporting */
+    // error_reporting(E_ALL);
+
+    /** Include path **/
+    // ini_set('include_path', ini_get('include_path').';../Classes/');
+    require_once JPATH_LIBRARIES . '/PHPExcel/library/PHPExcel.php';
+// jimport('phpexcel.library.PHPExcel');
+        /** PHPExcel */
+    include '/ecomer/libraries/PHPExcel/library/PHPExcel.php';
+
+    /** PHPExcel_Writer_Excel2007 */
+    include '/ecomer/libraries/PHPExcel/library/PHPExcel/Writer/Excel2007.php';
+
+    // Create new PHPExcel object
+    echo date('H:i:s') . " Create new PHPExcel object\n";
+    $objPHPExcel = new PHPExcel();
+
+    // Set properties
+    echo date('H:i:s') . " Set properties\n";
+    $objPHPExcel->getProperties()->setCreator("Maarten Balliauw");
+    $objPHPExcel->getProperties()->setLastModifiedBy("Maarten Balliauw");
+    $objPHPExcel->getProperties()->setTitle("Office 2007 XLSX Test Document");
+    $objPHPExcel->getProperties()->setSubject("Office 2007 XLSX Test Document");
+    $objPHPExcel->getProperties()->setDescription("Test document for Office 2007 XLSX, generated using PHP classes.");
+
+
+    // Add some data
+    echo date('H:i:s') . " Add some data\n";
+    $objPHPExcel->setActiveSheetIndex(0);
+    $objPHPExcel->getActiveSheet()->SetCellValue('A1', 'Hello');
+    $objPHPExcel->getActiveSheet()->SetCellValue('B2', 'world!');
+    $objPHPExcel->getActiveSheet()->SetCellValue('C1', 'Hello');
+    $objPHPExcel->getActiveSheet()->SetCellValue('D2', 'world!');
+
+    // Rename sheet
+    echo date('H:i:s') . " Rename sheet\n";
+    $objPHPExcel->getActiveSheet()->setTitle('Simple');
+
+        
+    // // Save Excel 2007 file
+    // echo date('H:i:s') . " Write to Excel2007 format\n";
+    // $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
+
+    
+    // $Excelsito= $objWriter->save(str_replace('.php', '.xlsx', "yorx"));
+
+
+    // header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); 
+    // header('Content-Disposition: attachment;filename=$Excelsito');
+    // header('Cache-Control: max-age=0');
+    // // Echo done
+    // echo date('H:i:s') . " Done writing file.\r\n";
+// Save Excel5 file
+        //echo date('H:i:s') , " Write to Excel5 format" , EOL;
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save(str_replace('.html', '.xls', __FILE__));
+
+        // We'll be outputting an excel file
+        header('Content-type: application/vnd.ms-excel');
+
+        // It will be called file.xls
+        header('Content-Disposition: attachment; filename="file.xls"');
+
+        // Write file to the browser
+        $objWriter->save('php://output');
+    }
+}
 ?>
