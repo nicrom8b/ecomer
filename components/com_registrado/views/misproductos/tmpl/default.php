@@ -91,6 +91,7 @@
         <?php } ?>
     </table>
 
-    <a href="index.php?option=com_registrado&task=exportarExel">Exel</a>
+    <p><a href="index.php?option=com_registrado&task=exportarExel">Excel</a></p>
+    <a href="index.php?option=com_registrado&task=exportarPDF">PDF</a>
 </body>
 </html>

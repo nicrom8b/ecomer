@@ -197,5 +197,54 @@ public function cargarProducto(){
         // Write file to the browser
         $objWriter->save('php://output');
     }
+
+function exportarPDF() {
+
+//se incluye la libreria de dompdf
+// require_once '../../libraries/dompdf-master/dompdf_config.inc.php';
+include '/ecomer/libraries/dompdf-master/dompdf/dompdf_config.inc.php';  
+
+$code = '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+        <thead>
+            <tr>
+                <th></th>
+                <th>NOMBRE</th>
+                <th>PRECIO</th>
+                <th>CATEGORIA</th>
+                <th>EL ARTÍCULO ES...</th>
+                <th>CONSULTAS</th>
+                <th colspan=2>ACCIONES</th>
+            </tr>
+        </thead>
+        </table>';
+                
+//         foreach ($this->productos as $producto) {
+            
+//       $code .= '<tbody>
+//                 <tr class="gradeA">';
+//                     $code.='<td><a id="example6" href="'.JURI::root().'images/'.$producto->nomf.'title="'.$producto->descripcion.'"><img width="115" height="90" alt="img" src="'.JURI::root().'images/'.$producto->nomf.'"/></a></td>';
+//                     $code.='<td>'.$producto->name.'</td>';
+//                     $code.='<td>'.$producto->precio.'</td>';
+//                     $code.='<td>'.$producto->nombreCategoria.'</td>';
+//                     $code.='<td>'.$producto->tipo.'</td>';
+//                     $code.='<td><a href="index.php?option=com_registrado&task=responder&id='.$producto->idProd.'">'.$producto->cont.'</a></td>';
+//                     $code.='</tr>
+//             </tbody>
+//     </table>'
+      // }; 
+//se crea una nueva instancia al DOMPDF
+$dompdf = new DOMPDF();
+// //se carga el codigo html
+// $dompdf->load_html($code);
+// //aumentamos memoria del servidor si es necesario
+// ini_set("memory_limit","32M"); 
+// //lanzamos a render
+// $dompdf->render();
+// //guardamos a PDF
+// $dompdf->stream("mipdf.pdf");
+
 }
+
+}
+
 ?>
