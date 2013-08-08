@@ -201,8 +201,8 @@ public function cargarProducto(){
 function exportarPDF() {
 
 //se incluye la libreria de dompdf
-// require_once '../../libraries/dompdf-master/dompdf_config.inc.php';
-include '/ecomer/libraries/dompdf-master/dompdf/dompdf_config.inc.php';  
+ require_once '/ecomer/libraries/dompdf-master/dompdf_config.inc.php';
+//include 'ecomer/libraries/dompdf-master/dompdf_config.inc.php';  
 
 $code = '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
         <thead>
