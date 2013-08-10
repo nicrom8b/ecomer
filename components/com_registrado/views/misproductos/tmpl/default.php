@@ -92,6 +92,7 @@
     </table>
 
     <p><a href="index.php?option=com_registrado&task=exportarExel">Excel</a></p>
-    <a href="index.php?option=com_registrado&task=exportarPDF">PDF</a>
+    <!--<a href="index.php?option=com_registrado&task=exportarPDF">PDF</a>-->
+    <a href="index.php?option=com_registrado&view=misproductos&format=pdf">PDF</a>
 </body>
 </html>
